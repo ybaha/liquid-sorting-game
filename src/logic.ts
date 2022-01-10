@@ -22,7 +22,7 @@ export const setGlasses = (colors: string[]) => {
   // generate different numbers
 
   //shuffle
-  for (let i = 0; i < 1100; i++) {
+  for (let i = 0; i < glassCount * 100; i++) {
     let [glass1, glass2] = generateDifferentNumbers({
       wantedNumberCount: 2,
       maxNumber: glassCount,
@@ -64,10 +64,8 @@ const takeLiquid = (firstGlass: string[], emptySpaceInSecondGlass: number) => {
 };
 
 const insertLiquid = (movedLiquid: string[], secondGlass: string[]) => {
-  movedLiquid.forEach((e) => {
-    let glassLength = secondGlass.length - 1;
-    let emptyIndex = glassLength - secondGlass.reverse().indexOf("empty");
-    secondGlass.reverse();
+  movedLiquid.forEach(() => {
+    let emptyIndex = secondGlass.lastIndexOf("empty");
     secondGlass[emptyIndex] = movedLiquid[0];
   });
   return secondGlass;

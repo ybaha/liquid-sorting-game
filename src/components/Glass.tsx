@@ -11,7 +11,6 @@ type GlassProps = {
 
 const Glass: React.FC<GlassProps> = (p) => {
   const [colors, setColors] = React.useState<string[]>([]);
-  const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
     setColors(p.colors);
@@ -38,11 +37,10 @@ const Glass: React.FC<GlassProps> = (p) => {
     >
       <div
         onClick={handleClick}
-        className={`rounded-[2em] overflow-hidden flex flex-col w-[8em] h-[12em] m-2 relative`}
+        className={`rounded-[2em] overflow-hidden flex flex-col w-[3em] h-[8em] m-2 lg:m-4`}
         // style={p.isFirst ? { border: "2px solid green" } : {}}
       >
         {colors.map((c, key) => {
-          let top = key * 2;
           return (
             <div
               key={key}

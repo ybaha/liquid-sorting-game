@@ -58,10 +58,9 @@ function App() {
   }, []);
 
   return (
-    <div className="container mx-auto flex flex-wrap p-8 text-center max-w-[900px]">
-      {gameOver && <div>WELL DONE</div>}
-      {gameStarted ? (
-        game.map((e: string[], i: number) => {
+    <div className="container mx-auto flex flex-col p-8 text-center max-w-[900px] justify-center items-center">
+      <div className="flex flex-wrap justify-center items-center">
+        {game.map((e: string[], i: number) => {
           return (
             <Glass
               selectedGlasses={selectedGlasses}
@@ -73,10 +72,9 @@ function App() {
               isSecond={selectedGlasses.second === i}
             />
           );
-        })
-      ) : (
-        <button onClick={initialize}>Start</button>
-      )}
+        })}
+      </div>
+      {gameOver && <div>Well done</div>}
     </div>
   );
 }
