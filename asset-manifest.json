@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/liquid-sorting-game/static/css/main.a56a7cf6.css",
+    "main.js": "/liquid-sorting-game/static/js/main.47ee560e.js",
+    "index.html": "/liquid-sorting-game/index.html",
+    "main.a56a7cf6.css.map": "/liquid-sorting-game/static/css/main.a56a7cf6.css.map",
+    "main.47ee560e.js.map": "/liquid-sorting-game/static/js/main.47ee560e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a56a7cf6.css",
+    "static/js/main.47ee560e.js"
+  ]
+}
