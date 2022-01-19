@@ -1,7 +1,13 @@
 import React from "react";
 // import "./App.css";
 import Glass from "./components/Glass";
-import { isGameCompleted, moveLiquids, setGlasses } from "./logic";
+import {
+  getColorsAtLevelCount,
+  isGameCompleted,
+  moveLiquids,
+  setGlasses,
+  solver,
+} from "./logic";
 
 function App() {
   const [gameStarted, setGameStarted] = React.useState(false);
@@ -35,12 +41,17 @@ function App() {
       "red",
       "blue",
       "green",
-      "brown",
+      "#026c71",
       "orange",
-      // "gray",
-      // "black",
+      "#1e0b84",
+      "black",
       // "purple",
-      // "coral",
+      // "magenta",
+      // "#120b22",
+      // "#102022",
+      // "#244444",
+      // "#777777",
+      // "#1fa123",
     ];
 
     let glassCount = colors.length;
@@ -48,7 +59,24 @@ function App() {
     setGameStarted(true);
     const initialState = setGlasses(colors);
 
-    setGame(initialState);
+    setGame([
+      ["black", "#1fa123", "purple", "#244444"],
+      ["#777777", "#026c71", "#026c71", "blue"],
+      ["green", "#777777", "#102022", "magenta"],
+      ["blue", "red", "#120b22", "#102022"],
+      ["black", "#026c71", "green", "purple"],
+      ["#102022", "orange", "#120b22", "orange"],
+      ["#244444", "#244444", "#244444", "red"],
+      ["magenta", "red", "#1e0b84", "#1e0b84"],
+      ["#1fa123", "#120b22", "purple", "#026c71"],
+      ["magenta", "green", "#1e0b84", "#1e0b84"],
+      ["#777777", "purple", "#120b22", "orange"],
+      ["red", "blue", "#777777", "blue"],
+      ["black", "#102022", "magenta", "black"],
+      ["orange", "#1fa123", "#1fa123", "green"],
+      ["empty", "empty", "empty", "empty"],
+      ["empty", "empty", "empty", "empty"],
+    ]);
   };
 
   React.useEffect(() => {
@@ -74,6 +102,18 @@ function App() {
           );
         })}
       </div>
+      {
+        <div
+          onClick={() => {
+            let solution = solver(game);
+            setGame(solution);
+            setGameOver(true);
+            console.log("set");
+          }}
+        >
+          Solve!
+        </div>
+      }
       {gameOver && <div>Well done</div>}
     </div>
   );
